@@ -14,6 +14,7 @@ There is no weird code styles, because most of the configuration is as basic as 
 
 ## Contains
 
+- [React](https://reactjs.org/)
 - [rollup.js](https://rollupjs.org/)
 - [Prettier](https://prettier.io/)
 - [TypeScript](https://www.typescriptlang.org/)
