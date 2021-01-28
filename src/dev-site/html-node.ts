@@ -3,4 +3,4 @@ window.htmlNode = document
   .attachShadow({ mode: "open" }) as HTMLNode;
 
 htmlNode.innerHTML = `<style>@import "./build/bundle.css"</style><div></div>`;
-htmlNode.panelUpdate = () => null;
+htmlNode.onpanelupdate = () => null;

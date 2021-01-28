@@ -5,7 +5,7 @@
  */
 
 interface HTMLNode extends ShadowRoot {
-  panelUpdate: () => void;
+  onpanelupdate: () => void;
 }
 
 declare const htmlNode: HTMLNode;
