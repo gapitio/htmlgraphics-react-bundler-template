@@ -7,6 +7,6 @@ export default {
   css: "",
   html: "",
   onRender: "",
-  dynamicData: false,
+  dynamicData: true,
   onInit: "",
 };

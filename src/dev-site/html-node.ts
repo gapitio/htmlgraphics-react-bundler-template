@@ -1,7 +1,6 @@
-import svgData from "../design/svg-data.svg";
-
 window.htmlNode = document
   .getElementById("shadow-container")
-  .attachShadow({ mode: "open" });
+  .attachShadow({ mode: "open" }) as HTMLNode;
 
-htmlNode.innerHTML = `<style></style><div>${svgData}</div>`;
+htmlNode.innerHTML = `<style>@import "./build/bundle.css"</style><div></div>`;
+htmlNode.panelUpdate = () => null;

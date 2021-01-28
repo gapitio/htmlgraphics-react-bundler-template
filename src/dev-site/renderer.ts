@@ -2,6 +2,8 @@
   Loads on-render and executes it each time the refresh button is pressed
 */
 
+import { updateData } from "./data";
+
 function makeRequest(method: string, url: string) {
   return new Promise(function (resolve, reject) {
     const xhr = new XMLHttpRequest();
@@ -27,6 +29,7 @@ function makeRequest(method: string, url: string) {
 }
 
 function renderHandler() {
+  updateData();
   // eslint-disable-next-line @typescript-eslint/ban-types
   let onRender: Function | null;
   const ON_RENDER_PATH = "./build/on-render.js";
@@ -36,7 +39,17 @@ function renderHandler() {
     "refresh-button"
   ) as HTMLDivElement;
 
+  const panelUpdateEvent = new CustomEvent("panelupdate");
+
+  window.onload = () => {
+    htmlNode.panelUpdate();
+    htmlNode.dispatchEvent(panelUpdateEvent);
+  };
+
   refreshButton.onclick = async function () {
+    updateData();
+    htmlNode.dispatchEvent(panelUpdateEvent);
+    htmlNode.panelUpdate();
     if (!refreshButton.classList.contains("executed")) {
       console.warn(
         "Executing onRender through a Function object. Line numbers might be inaccurate."
