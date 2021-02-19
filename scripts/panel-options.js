@@ -2,6 +2,7 @@ import { writeFileSync, readFileSync } from "fs";
 import panelOptionsConfig from "../panel-options.config.js";
 
 const IN_PATHS = {
+  html: "<div></div>",
   onRender: "dist/on-render.js",
   onInit: "dist/on-init.js",
   codeData: "dist/custom-properties.json",
