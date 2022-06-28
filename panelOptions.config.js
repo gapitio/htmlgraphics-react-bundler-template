@@ -1,12 +1,12 @@
-export default {
+export const defaultPanelOptions = {
   add100Percentage: true,
   centerAlignContent: true,
   overflow: "visible",
   SVGBaseFix: true,
   codeData: "{}",
   css: "",
-  html: "<div></div>",
+  html: "",
   onRender: "",
-  dynamicData: true,
+  dynamicData: false,
   onInit: "",
 };
