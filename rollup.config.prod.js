@@ -17,7 +17,9 @@ export default [
       sourcemap: false,
     },
     plugins: [
-      postcss({ output: "bundle.css" }),
+      postcss({
+        extract: "style.css",
+      }),
       typescript(),
       terser(),
       nodeResolve({

@@ -1,7 +1,7 @@
 import { PanelData } from "@grafana/data";
 import { Component } from "react";
 import { createRoot } from "react-dom/client";
-import "./styles.css";
+import "./style.css";
 
 interface State {
   data: PanelData;
