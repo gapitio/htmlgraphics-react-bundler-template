@@ -6,8 +6,8 @@ const OUT_PATH = "dist/custom-properties.json";
 function isValidJSONString(str) {
   try {
     JSON.parse(str);
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     return false;
   }
   return true;

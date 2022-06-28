@@ -4,13 +4,14 @@ import replace from "@rollup/plugin-replace";
 import typescript from "rollup-plugin-typescript2";
 import livereload from "rollup-plugin-livereload";
 import json from "@rollup/plugin-json";
-import css from "rollup-plugin-css-only";
+import postcss from "rollup-plugin-postcss";
+import html from "rollup-plugin-html";
 
 const OUT_DIR = "public/build";
 
 export default [
   {
-    input: "src/dev-site/index.ts",
+    input: "src/devSite/index.ts",
     output: {
       dir: OUT_DIR,
       format: "iife",
@@ -20,6 +21,9 @@ export default [
       clearScreen: false,
     },
     plugins: [
+      html({
+        include: "src/html.html",
+      }),
       json({
         preferConst: true,
       }),
@@ -34,13 +38,16 @@ export default [
     ],
   },
   {
-    input: "src/on-init.tsx",
+    input: "src/onInit.tsx",
     output: {
       dir: OUT_DIR,
       format: "iife",
       sourcemap: true,
     },
     plugins: [
+      postcss({
+        extract: "style.css",
+      }),
       typescript({
         check: false,
       }),
@@ -49,17 +56,17 @@ export default [
         dedupe: ["react", "react-dom"],
       }),
       replace({
+        preventAssignment: true,
         "process.env.NODE_ENV": JSON.stringify("development"),
       }),
       commonjs(),
-      css({ output: "bundle.css" }),
       json({
         preferConst: true,
       }),
     ],
   },
   {
-    input: "src/on-render.ts",
+    input: "src/onRender.ts",
     output: {
       dir: OUT_DIR,
       format: "iife",

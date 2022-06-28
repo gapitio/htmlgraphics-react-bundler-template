@@ -1,14 +1,14 @@
-/* eslint-disable react/jsx-filename-extension */
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import { PanelData } from "@grafana/data";
+import { Component } from "react";
+import { createRoot } from "react-dom/client";
 import "./styles.css";
 
 interface State {
   data: PanelData;
 }
 
-class App extends Component<{}, State> {
-  constructor(props: {}) {
+class App extends Component<unknown, State> {
+  constructor(props: unknown) {
     super(props);
 
     this.onPanelUpdate = this.onPanelUpdate.bind(this);
@@ -27,9 +27,9 @@ class App extends Component<{}, State> {
   }
 
   render() {
-    const value = data.series[0]?.fields[1]?.state.calcs?.last;
+    const value = data.series[0]?.fields[1]?.state?.calcs?.last;
     return <div>Value: {value ?? "No data"}</div>;
   }
 }
 
-ReactDOM.render(<App />, htmlNode.children[1]);
+createRoot(htmlNode.children[1]).render(<App />);

@@ -1,12 +1,16 @@
 {
-  "include": ["./src/**/*", "./types"],
   "compilerOptions": {
-    "jsx": "react",
-    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
     "module": "ESNext",
-    "sourceMap": true,
-    "target": "ESNext",
+    "moduleResolution": "node",
+    "noEmit": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "ESNext"
   }
 }

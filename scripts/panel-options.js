@@ -18,7 +18,7 @@ function exportPanelOptions() {
   }
 
   // Write out file
-  writeFileSync(OUT_PATH, JSON.stringify(panelOptions, null, 2) + "\n");
+  writeFileSync(OUT_PATH, JSON.stringify(panelOptions, undefined, 2) + "\n");
   console.log("Successfully written " + OUT_PATH);
 }
 
